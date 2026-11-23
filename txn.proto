@@ -1,0 +1,18 @@
+syntax = "proto3";
+package bank;
+
+message Transaction {
+  string transaction_id = 1;
+  string from_account = 2;
+  string to_account = 3;
+  double amount = 4;
+  string currency = 5;
+  string timestamp = 6;
+  string status = 7;
+}
+
+message TxnRequest { string transaction_id = 1; }
+
+service TxnService {
+  rpc GetTransaction(TxnRequest) returns (Transaction);
+}
